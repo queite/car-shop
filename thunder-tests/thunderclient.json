@@ -17,5 +17,19 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "0ecca807-8bad-4cff-9947-7b84e998e95b",
+    "colId": "efaaf48c-6aaf-4199-9662-612bf863ce4c",
+    "containerId": "",
+    "name": "get",
+    "url": "localhost:3001/cars",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-09-14T22:00:35.481Z",
+    "modified": "2022-09-14T22:00:46.913Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]

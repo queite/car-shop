@@ -6,8 +6,12 @@ export default class CarController {
   constructor(protected _service: IService<ICar>) { }
 
   async create(req: Request, res: Response) {
-    console.log(req.body);
     const results = await this._service.create(req.body);
     return res.status(201).json(results);
+  }
+
+  async read(req: Request, res: Response) {
+    const results = await this._service.read();
+    return res.status(200).json(results);
   }
 }
