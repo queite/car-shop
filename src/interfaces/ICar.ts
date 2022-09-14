@@ -1,6 +1,17 @@
-import { IVehicle } from './IVehicle';
+import { z } from 'zod';
+import { VehicleZodSchema } from './IVehicle';
 
-export interface ICar extends IVehicle {
-  doorsQty: number
-  seatsQty: number
-}
+const CarZodSchema = VehicleZodSchema.extend({
+  doorsQty: z.number({
+    required_error: 'DoorsQty is required',
+    invalid_type_error: 'DoorsQty must be a integer',
+  }).int().gte(2).lte(4),
+  seatsQty: z.number({
+    required_error: 'SeatsQty is required',
+    invalid_type_error: 'SeatsQty must be a integer',
+  }).int().gte(2).lte(7),
+});
+
+type ICar = z.infer<typeof CarZodSchema>;
+
+export { CarZodSchema, ICar };
