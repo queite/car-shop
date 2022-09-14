@@ -31,5 +31,19 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "3c50a644-f592-46bf-a3f7-f6a2fee08d20",
+    "colId": "efaaf48c-6aaf-4199-9662-612bf863ce4c",
+    "containerId": "",
+    "name": "getById",
+    "url": "localhost:3001/cars/63225366594d1b9e6d0c416",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2022-09-14T22:08:31.731Z",
+    "modified": "2022-09-14T22:22:46.622Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]
