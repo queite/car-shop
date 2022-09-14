@@ -1,0 +1,21 @@
+[
+  {
+    "_id": "f63b0b87-b475-43f2-8472-d093af05974f",
+    "colId": "efaaf48c-6aaf-4199-9662-612bf863ce4c",
+    "containerId": "",
+    "name": "create",
+    "url": "localhost:3001/cars",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-09-14T20:55:56.916Z",
+    "modified": "2022-09-14T20:59:56.869Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"model\": \"Ferrari Maranello\",\n  \"year\": 1963,\n  \"color\": \"red\",\n  \"buyValue\": 3500000,\n  \"seatsQty\": 2,\n  \"doorsQty\": 2\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]
