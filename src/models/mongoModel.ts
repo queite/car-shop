@@ -35,7 +35,7 @@ abstract class MongoModel<T> implements IModel<T> {
 
   async delete(_id: string): Promise<T | null> {
     if (!isValidObjectId(_id)) throw Error(ErrorTypes.InvalidMongoId);
-    return this._model.findOneAndRemove({ _id }, { rawResult: true });
+    return this._model.findOneAndRemove({ _id });
   }
 }
 

@@ -83,12 +83,12 @@ describe('Cars service', () => {
 		});
   })
 
-  // describe('Delete car by ID', () => {
-  //   it('successfully', async () => {
-  //     const car = await carService.delete(carWithIdMock._id);
+  describe('Delete car by ID', () => {
+    it('successfully', async () => {
+      const car = await carService.delete(carWithIdMock._id);
 
-  //     expect(car).to.be.deep.equal(carWithIdMock);
-  //   })
-  // })
+      expect(car).to.be.deep.equal(carWithIdMock);
+    })
+  })
 
 });

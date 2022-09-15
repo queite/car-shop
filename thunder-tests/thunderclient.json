@@ -8,12 +8,12 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-09-14T20:55:56.916Z",
-    "modified": "2022-09-14T20:59:56.869Z",
+    "modified": "2022-09-15T18:47:17.878Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"model\": \"Ferrari Maranello\",\n  \"year\": 1963,\n  \"color\": \"red\",\n  \"buyValue\": 3500000,\n  \"seatsQty\": 2,\n  \"doorsQty\": 2\n}",
+      "raw": "{\n  \"model\": \"frth\",\n  \"year\": 1963,\n  \"color\": \"red\",\n  \"buyValue\": 3500000,\n  \"seatsQty\": 2,\n  \"doorsQty\": 2\n}",
       "form": []
     },
     "tests": []
@@ -63,6 +63,20 @@
       "raw": "{\n  \"model\": \"mudccado\",\n  \"year\": 1963,\n  \"color\": \"red\",\n  \"buyValue\": 3500000,\n  \"seatsQty\": 2,\n  \"doorsQty\": 2\n}",
       "form": []
     },
+    "tests": []
+  },
+  {
+    "_id": "7fa3aa04-7a7d-4b42-b278-e32ee85dd310",
+    "colId": "efaaf48c-6aaf-4199-9662-612bf863ce4c",
+    "containerId": "",
+    "name": "delete",
+    "url": "localhost:3001/cars/6323733186ad980e0dd88371",
+    "method": "DELETE",
+    "sortNum": 50000,
+    "created": "2022-09-15T18:35:21.005Z",
+    "modified": "2022-09-15T18:48:51.251Z",
+    "headers": [],
+    "params": [],
     "tests": []
   }
 ]
