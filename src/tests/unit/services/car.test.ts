@@ -20,7 +20,9 @@ describe('Cars service', () => {
     sinon.stub(carModel, 'update')
       .onCall(0).resolves(carMockForUpdateWithId)
       .onCall(1).resolves(null);
-    sinon.stub(carModel, 'delete').resolves(carWithIdMock);
+    sinon.stub(carModel, 'delete')
+      .onCall(0).resolves(carWithIdMock)
+      .onCall(1).resolves(null);
   });
 
   after(()=>{
@@ -75,7 +77,6 @@ describe('Cars service', () => {
 
     it('should to throw the error "EntityNotFound" if ID is not found', async () => {
 			try {
-				// .onCall(1)
 				await carService.update(carMockForUpdateWithId.id, carMockForUpdate);
 			} catch (error: any) {
 				expect(error.message).to.be.deep.equal(ErrorTypes.EntityNotFound);
@@ -89,6 +90,14 @@ describe('Cars service', () => {
 
       expect(car).to.be.deep.equal(carWithIdMock);
     })
+
+    it('should to throw the error "EntityNotFound" if ID is not found', async () => {
+			try {
+				await carService.delete(carWithIdMock._id);
+			} catch (error: any) {
+				expect(error.message).to.be.deep.equal(ErrorTypes.EntityNotFound);
+			}
+		});
   })
 
 });
