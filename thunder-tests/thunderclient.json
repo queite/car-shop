@@ -45,5 +45,24 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "454ee60e-97fb-40ec-97bd-7191c2ce09a0",
+    "colId": "efaaf48c-6aaf-4199-9662-612bf863ce4c",
+    "containerId": "",
+    "name": "update",
+    "url": "localhost:3001/cars/632350c7dc8ececda94df094",
+    "method": "PUT",
+    "sortNum": 40000,
+    "created": "2022-09-15T17:44:34.507Z",
+    "modified": "2022-09-15T17:46:09.588Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"model\": \"mudccado\",\n  \"year\": 1963,\n  \"color\": \"red\",\n  \"buyValue\": 3500000,\n  \"seatsQty\": 2,\n  \"doorsQty\": 2\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]

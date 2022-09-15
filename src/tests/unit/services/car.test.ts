@@ -17,7 +17,9 @@ describe('Cars service', () => {
     sinon.stub(carModel, 'readOne')
       .onCall(0).resolves(carWithIdMock)
       .onCall(1).resolves(null)
-    sinon.stub(carModel, 'update').resolves(carMockForUpdateWithId);
+    sinon.stub(carModel, 'update')
+      .onCall(0).resolves(carMockForUpdateWithId)
+      .onCall(1).resolves(null);
     sinon.stub(carModel, 'delete').resolves(carWithIdMock);
   });
 
@@ -32,16 +34,12 @@ describe('Cars service', () => {
       expect(carCreated).to.be.deep.equal(carWithIdMock);
     });
 
-    it('failure', async () => {
-      let err: any;
-
+    it('should fail if any data is invalid according to zod Schema', async () => {
       try {
         await carService.create(createWithErrorCarMock);
-      } catch (error) {
-        err = error;
+      } catch (error: any) {
+        expect(error).to.be.instanceOf(ZodError);
       }
-
-      expect(err).to.be.instanceOf(ZodError);
     });
   })
 
@@ -68,13 +66,22 @@ describe('Cars service', () => {
 		});
   })
 
-  // describe('Update car by ID', () => {
-  //   it('successfully', async () => {
-  //     const car = await carService.update(carMockForUpdateWithId.id, carMockForUpdate);
+  describe('Update car by ID', () => {
+    it('successfully', async () => {
+      const car = await carService.update(carMockForUpdateWithId.id, carMockForUpdate);
 
-  //     expect(car).to.be.deep.equal(carMockForUpdateWithId);
-  //   })
-  // })
+      expect(car).to.be.deep.equal(carMockForUpdateWithId);
+    })
+
+    it('should to throw the error "EntityNotFound" if ID is not found', async () => {
+			try {
+				// .onCall(1)
+				await carService.update(carMockForUpdateWithId.id, carMockForUpdate);
+			} catch (error: any) {
+				expect(error.message).to.be.deep.equal(ErrorTypes.EntityNotFound);
+			}
+		});
+  })
 
   // describe('Delete car by ID', () => {
   //   it('successfully', async () => {
