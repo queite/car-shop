@@ -5,10 +5,10 @@ export const carWithIdMock = {
   buyValue: 3500000,
   doorsQty: 2,
   seatsQty: 2,
-  _id: "632242cce100cb6a21015928",
+  id: "632242cce100cb6a21015928",
 }
 
-export const createCarMock = {
+export const carCreateMock = {
   model: "Ferrari Maranello",
   year: 1963,
   color: "red",
@@ -17,7 +17,7 @@ export const createCarMock = {
   seatsQty: 2,
 }
 
-export const createWithErrorCarMock = {
+export const carCreateWithErrorMock = {
   model: "",
   year: 1963,
   color: "red",
@@ -26,7 +26,7 @@ export const createWithErrorCarMock = {
   seatsQty: 2,
 }
 
-export const carMockForUpdateWithId = {
+export const carForUpdateWithIdMock = {
   id: "4edd40c86762e0fb12000003",
   model: "Fiat Uno",
   year: 1963,
@@ -36,7 +36,7 @@ export const carMockForUpdateWithId = {
   doorsQty: 4
 }
 
-export const carMockForUpdate = {
+export const carForUpdateMock = {
   model: "Fiat Uno",
   year: 1963,
   color: "blue",

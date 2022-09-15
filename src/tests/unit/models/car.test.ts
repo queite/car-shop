@@ -1,7 +1,7 @@
 import * as sinon from 'sinon';
 import chai from 'chai';
 import { Model } from 'mongoose';
-import { carMockForUpdate, carMockForUpdateWithId, carWithIdMock, createCarMock } from '../../mocks/carsMock';
+import { carCreateMock, carForUpdateMock, carForUpdateWithIdMock, carWithIdMock } from '../../mocks/carsMock';
 import CarModel from '../../../models/Car';
 import { ErrorTypes } from '../../../errors/catalog';
 const { expect } = chai;
@@ -13,7 +13,7 @@ describe('Model Cars', () => {
     sinon.stub(Model, 'create').resolves(carWithIdMock);
     sinon.stub(Model, 'find').resolves([carWithIdMock]);
     sinon.stub(Model, 'findOne').resolves(carWithIdMock);
-    sinon.stub(Model, 'findByIdAndUpdate').resolves(carMockForUpdateWithId);
+    sinon.stub(Model, 'findByIdAndUpdate').resolves(carForUpdateWithIdMock);
     sinon.stub(Model, 'findOneAndRemove').resolves(carWithIdMock);
   });
 
@@ -23,7 +23,7 @@ describe('Model Cars', () => {
 
   describe('Create a car', () => {
     it('successfully', async () => {
-      const newCar = await carModel.create(createCarMock);
+      const newCar = await carModel.create(carCreateMock);
       expect(newCar).to.be.deep.eq(carWithIdMock);
     });
   })
@@ -35,7 +35,7 @@ describe('Model Cars', () => {
     });
 
     it('should get cars by ID successfully', async () => {
-      const car = await carModel.readOne('632242cce100cb6a21015928');
+      const car = await carModel.readOne(carWithIdMock.id);
       expect(car).to.be.deep.eq(carWithIdMock);
     });
 
@@ -50,13 +50,13 @@ describe('Model Cars', () => {
 
   describe('Update car', () => {
     it('successfully', async () => {
-			const car = await carModel.update('4edd40c86762e0fb12000003', carMockForUpdate);
-			expect(car).to.be.deep.equal(carMockForUpdateWithId);
+			const car = await carModel.update(carForUpdateWithIdMock.id, carForUpdateMock);
+			expect(car).to.be.deep.equal(carForUpdateWithIdMock);
 		});
 
 		it('should to throw the error "InvalidMongoId" when the ID is wrong', async () => {
 			try {
-				await carModel.update('123ERRADO', carMockForUpdate);
+				await carModel.update('123ERRADO', carForUpdateMock);
 			} catch (error:any) {
 				expect(error.message).to.be.eq(ErrorTypes.InvalidMongoId);
 			}
@@ -65,7 +65,7 @@ describe('Model Cars', () => {
 
   describe('Delete car by ID', () => {
     it('should delete a car successfully', async () => {
-      const deletedCar = await carModel.delete('632242cce100cb6a21015928');
+      const deletedCar = await carModel.delete(carWithIdMock.id);
       expect(deletedCar).to.be.deep.eq(carWithIdMock);
     });
 
