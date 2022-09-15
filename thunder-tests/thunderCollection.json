@@ -4,6 +4,21 @@
     "colName": "car_shop",
     "created": "2022-09-14T20:55:42.872Z",
     "sortNum": 20000,
-    "folders": []
+    "folders": [
+      {
+        "_id": "470acfeb-5d4c-43a0-be61-6e906019baa0",
+        "name": "cars",
+        "containerId": "",
+        "created": "2022-09-15T19:51:25.181Z",
+        "sortNum": 10000
+      },
+      {
+        "_id": "f40b4e28-d1f4-4cad-8fc4-59369fbe47d2",
+        "name": "motorcycles",
+        "containerId": "",
+        "created": "2022-09-15T19:51:52.869Z",
+        "sortNum": 20000
+      }
+    ]
   }
 ]
